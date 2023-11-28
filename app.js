@@ -8,6 +8,7 @@ function uploadImage() {
         const imageURL = URL.createObjectURL(file);
         puzzleImage.src = imageURL;
         imageContainer.style.display = 'block';
+        document.getElementById('puzzleLink').style.display = 'none';  // Hide the puzzle link when uploading a new image
     };
 
     input.click();
@@ -24,9 +25,10 @@ function generatePuzzle() {
     })
     .then(response => response.json())
     .then(data => {
-        document.getElementById('shareLink').value = window.location.origin + data.link;
-        document.getElementById('puzzleLink').href = window.location.origin + data.link;
+        const puzzleLink = window.location.origin + data.link;
+        document.getElementById('puzzleLink').href = puzzleLink;
         document.getElementById('puzzleLink').style.display = 'inline-block';
+        window.open(puzzleLink, '_blank');  // Open the puzzle link in a new tab
     })
     .catch(error => console.error('Error:', error));
 }
