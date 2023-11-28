@@ -24,7 +24,9 @@ function generatePuzzle() {
     })
     .then(response => response.json())
     .then(data => {
-        document.getElementById('shareLink').value = data.link;
+        document.getElementById('shareLink').value = window.location.origin + data.link;
+        document.getElementById('puzzleLink').href = window.location.origin + data.link;
+        document.getElementById('puzzleLink').style.display = 'block';
     })
     .catch(error => console.error('Error:', error));
 }
