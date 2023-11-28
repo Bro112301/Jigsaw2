@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Puzzle Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <h1>Image Puzzle Generator</h1>
+
+        <input type="file" id="imageInput" accept="image/*" />
+        <button onclick="uploadImage()">Upload Image</button>
+
+        <div id="imageContainer">
+            <img id="puzzleImage" alt="Uploaded Image" />
+        </div>
+
+        <button onclick="generatePuzzle()">Generate Puzzle</button>
+
+        <p>Share this link with others:</p>
+        <input type="text" id="shareLink" readonly />
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
